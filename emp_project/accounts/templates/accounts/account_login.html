@@ -1,0 +1,39 @@
+{% extends 'base_layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form class='login-form' action="" method='POST' autocomplete='off'>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                {{ form }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3 offset-sm-6">
+                <button type="submit" class="btn btn-block btn-success">Login</button>
+            </div>
+            <div class="col-sm-3 offset-sm-6">
+                <a href='{% url "accounts:signup"%}' class="btn btn-signup btn-block btn-primary">Sign Up</a>
+            </div>
+        </div>
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value='{{request.GET.next}}'>
+        {% endif %}
+    </form>
+    <script>
+        $('document').ready(function(){
+            {% if user.is_authenticated %}
+                window.location.href = "{% url 'employee:emp_list' %}"
+            {% endif %}
+
+            $('#id_username').attr('class','form-control btn-block')
+            $('#id_username').attr('autocomplete','off')
+            $('#id_password').attr('class','form-control btn-block')
+
+
+
+
+        })
+    </script>
+{% endblock %}

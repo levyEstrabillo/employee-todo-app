@@ -1,0 +1,36 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee Code</th>
+        <th>Fullname</th>
+        <th><a href="{% url 'employee:emp_form' %}" class="btn btn-success btn-block">Add New</a></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for emp in employees %}
+            <tr>
+                <td>{{ emp.Employee_code }}</td>
+                <td>{{ emp.fullname }}</td>
+                <td>
+                  <div class="row">
+                    <div class="col-sm-3 offset-sm-3">
+                      <a href="{% url 'employee:emp_form' emp.id %}"><span class="fa fa-pencil"></span></a>
+                    </div>
+                    <div class="col-sm-6">
+                      {% if user.is_authenticated %}
+                        <form action="{%url 'employee:emp_delete' emp.id%}" method='POST'>
+                          {% csrf_token %}
+                          <button type="submit" class="modBtn"><span class="fa fa-trash"></span></button>
+                        </form>
+                      {% endif %}
+                    </div>
+                  </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+

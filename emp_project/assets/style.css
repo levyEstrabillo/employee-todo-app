@@ -1,0 +1,55 @@
+.login-form input{
+    margin-bottom:15px;
+}
+
+.errorlist{
+    color:rgb(204, 85, 69);
+    list-style:none;
+    border:2px solid rgb(204, 85, 69);
+    padding:15px 10px;
+    font-size:14px;
+    background-color:rgb(255, 203, 191);
+    border-radius:5px;
+}
+
+.btn-signup{
+    margin-top:15px;
+}
+
+
+input{
+    margin-bottom:15px;
+}
+
+.errorlist{
+    color:rgb(204, 85, 69);
+    list-style:none;
+    border:2px solid rgb(204, 85, 69);
+    padding:15px 10px;
+    font-size:14px;
+    background-color:rgb(255, 203, 191);
+    border-radius:5px;
+}
+
+.helptext, .helptext ul li{
+    color:rgb(80,80,80);
+    list-style:none;
+    font-size:13px;
+}
+
+.helptext ul{
+    padding:0;
+}
+
+.mod-address textarea{
+    max-height:100px;
+}
+
+.modBtn{
+    border:none;
+    background:none;
+  }
+
+  .fa{
+    color:rgb(95, 94, 94)
+  }

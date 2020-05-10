@@ -1,0 +1,31 @@
+{% extends 'base_layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method='POST' autocomplete='off'>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                {{ form }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3 offset-sm-6">
+                <button type="submit" class="btn btn-block btn-success">Sign Up</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 offset-sm-6">
+                <a href='{% url "accounts:login"%}' class="btn btn-signup btn-block btn-danger">Cancel</a>
+            </div>
+        </div>
+    </form>
+    <script>
+        $('document').ready(function(){
+            $('#id_username').attr('class','form-control btn-block')
+            $('#id_username').attr('autocomplete','off')
+            $('#id_password1').attr('class','form-control btn-block')
+            $('#id_password2').attr('class','form-control btn-block')
+        })
+    </script>
+{% endblock %}
